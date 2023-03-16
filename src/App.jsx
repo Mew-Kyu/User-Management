@@ -1,10 +1,10 @@
 import "./App.css";
-import { publicRoute, privateRoutes } from "./routes";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { publicRoutes, adminRoutes, userRoutes } from "./routes";
+import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Routes>
-      {publicRoute.map((route) => (
+      {publicRoutes.map((route) => (
         <Route key={route.path} path={route.path} element={route.element} />
       ))}
     </Routes>
