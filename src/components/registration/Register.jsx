@@ -35,11 +35,11 @@ const tailFormItemLayout = {
   },
 };
 
-const options = [
-  { value: "female", label: "Female" },
-  { value: "male", label: "Male" },
-  { value: "other", label: "Other" },
-];
+// const options = [
+//   { value: "female", label: "Female" },
+//   { value: "male", label: "Male" },
+//   { value: "other", label: "Other" },
+// ];
 
 export const Register = () => {
   const [form] = Form.useForm();
@@ -81,12 +81,16 @@ export const Register = () => {
         scrollToFirstError
       >
         <Form.Item
-          name="username"
-          label="Username"
+          name="email"
+          label="E-mail"
           rules={[
             {
+              type: "email",
+              message: "The input is not valid E-mail!",
+            },
+            {
               required: true,
-              message: "Please input your Username!",
+              message: "Please input your E-mail!",
             },
           ]}
         >
@@ -133,16 +137,12 @@ export const Register = () => {
         </Form.Item>
 
         <Form.Item
-          name="email"
-          label="E-mail"
+          name="username"
+          label="Username"
           rules={[
             {
-              type: "email",
-              message: "The input is not valid E-mail!",
-            },
-            {
               required: true,
-              message: "Please input your E-mail!",
+              message: "Please input your Username!",
             },
           ]}
         >
