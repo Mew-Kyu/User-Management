@@ -1,20 +1,25 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, Space } from "antd";
+import { useState } from "react";
 import "./login.css";
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
   return (
     <Space
+      className="bg"
       style={{
-        height: "50vh",
+        height: "100vh",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
       }}
     >
       <Form
+        style={{}}
         name="normal_login"
         className="login-form"
         initialValues={{

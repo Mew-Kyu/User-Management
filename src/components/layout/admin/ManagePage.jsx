@@ -30,7 +30,7 @@ const ManagePage = () => {
             style={{
               margin: "16px 0",
             }}
-            items={[{ title: "User" }, { title: "Bill" }]}
+            items={[{ title: "User" }, { title: "Manage" }]}
           />
           <div
             style={{

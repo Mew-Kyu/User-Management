@@ -1,7 +1,7 @@
 import NotFound from "../components/404/NotFound";
 import ManagePage from "../components/layout/admin/ManagePage";
 import Login from "../components/login/Login";
-import Registration from "../components/registration/Registration";
+import { Register } from "../components/registration/Register";
 import ProfilePage from "../components/layout/admin/ProfilePage"
 
 const adminRoutes = [
@@ -40,8 +40,8 @@ const publicRoutes = [
         element: <Login />
     },
     {
-        path: "/registration",
-        element: <Registration />
+        path: "/register",
+        element: <Register />
     },
     {
         path: "*",
