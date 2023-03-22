@@ -10,7 +10,7 @@ const Login = () => {
   const onFinish = async (e) => {
     setLoading(true);
     const user = {
-      email: e.email,
+      username: e.username,
       password: e.password,
     };
     try {
