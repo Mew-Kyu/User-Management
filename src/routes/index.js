@@ -4,7 +4,7 @@ import Login from "../components/login/Login";
 import { Register } from "../components/registration/Register";
 import ProfilePage from "../components/layout/admin/ProfilePage"
 
-const adminRoutes = [
+const privateRoutes = [
     {
         path: "/",
         element: <ManagePage />
@@ -12,29 +12,14 @@ const adminRoutes = [
     {
         path: "*",
         element: <NotFound />
-    }
-];
-
-const userRoutes = [
-    {
-        path: "/",
-        element: <ManagePage />
-    },
-    {
-        path: "*",
-        element: <NotFound />
-    }
-];
-
-const publicRoutes = [
-    {
-        path: "/",
-        element: <ManagePage />
     },
     {
         path: "/profile",
         element: <ProfilePage />
     },
+];
+
+const publicRoutes = [
     {
         path: "/login",
         element: <Login />
@@ -49,4 +34,4 @@ const publicRoutes = [
     }
 ]
 
-export  {adminRoutes, userRoutes, publicRoutes}
+export  {privateRoutes, publicRoutes}
