@@ -149,7 +149,7 @@ export const Register = () => {
           <Input />
         </Form.Item>
 
-        <Form.Item
+        {/* <Form.Item
           name="phone"
           label="Phone"
           rules={[
@@ -177,14 +177,7 @@ export const Register = () => {
             <Option value="female">Female</Option>
             <Option value="other">Other</Option>
           </Select>
-          {/* <Select onChange={(value) => setGender(value)}>
-            {options.map((option) => (
-              <Option key={option.value} value={option.value}>
-                {option.label}
-              </Option>
-            ))}
-          </Select> */}
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           name="agreement"

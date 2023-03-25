@@ -1,5 +1,5 @@
 import { Breadcrumb, Layout, theme } from "antd";
-import UserProfile from "../../pages/UserProfile";
+import { UserProfile } from "../../pages/UserProfile";
 import { AdminSider } from "./AdminSider";
 const { Header, Content } = Layout;
 

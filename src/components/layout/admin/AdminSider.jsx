@@ -1,30 +1,52 @@
-import {
-  // FileOutlined,
-  // PieChartOutlined,
-  UserOutlined,
-  // DesktopOutlined,
-  TeamOutlined,
-} from "@ant-design/icons";
+import { UserOutlined, TeamOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
+import { BASE_URL_AUTH } from "../../../utils/api";
+import { headers } from "../../../utils/headers";
+import { LogoutOutlined } from "@ant-design/icons";
 const { Sider } = Layout;
 
 const AdminSider = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const location = useLocation();
+  const userId = localStorage.getItem("userId");
+  const removeItem = (item) => {
+    localStorage.removeItem(item);
+  };
+
+  const handleLogout = async () => {
+    try {
+      const { data: res } = await axios.post(
+        `${BASE_URL_AUTH}/logout`,
+        userId,
+        {
+          headers,
+        }
+      );
+      console.log(res);
+      removeItem("accessToken");
+      removeItem("userId");
+      window.location.href = "/";
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Sider
       collapsible
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
     >
-      <div
+      <LogoutOutlined
         style={{
-          height: 32,
+          color: "white",
+          display: "flex",
+          justifyContent: "center",
           margin: 16,
-          background: "rgba(255, 255, 255, 0.2)",
+          fontSize: "26px",
         }}
+        onClick={handleLogout}
       />
       <Menu
         theme="dark"
