@@ -1,15 +1,15 @@
 import { UserOutlined, TeamOutlined } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import axios from "axios";
 import { BASE_URL_AUTH } from "../../../utils/api";
 import { headers } from "../../../utils/headers";
 import { LogoutOutlined } from "@ant-design/icons";
+import "./sider.css";
+
 const { Sider } = Layout;
 
-const AdminSider = () => {
-  const [collapsed, setCollapsed] = useState(false);
+export const AdminSider = () => {
   const userId = localStorage.getItem("userId");
   const removeItem = (item) => {
     localStorage.removeItem(item);
@@ -33,11 +33,7 @@ const AdminSider = () => {
     }
   };
   return (
-    <Sider
-      collapsible
-      collapsed={collapsed}
-      onCollapse={(value) => setCollapsed(value)}
-    >
+    <Sider>
       <LogoutOutlined
         style={{
           color: "white",
@@ -48,24 +44,22 @@ const AdminSider = () => {
         }}
         onClick={handleLogout}
       />
-      <Menu
-        theme="dark"
-        defaultSelectedKeys={["1"]}
-        mode="inline"
-        items={[
-          {
-            key: "1",
-            icon: <TeamOutlined />,
-            label: <Link to="/">Home</Link>,
-          },
-          {
-            key: "2",
-            icon: <UserOutlined />,
-            label: <Link to="/profile">Profile</Link>,
-          },
-        ]}
-      />
+      <nav className="menu">
+        <ul>
+          <li>
+            <Link to="/" className="menu-item">
+              <TeamOutlined />
+              <span>Home</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/profile" className="menu-item">
+              <UserOutlined />
+              <span>Profile</span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </Sider>
   );
 };
-export { AdminSider };

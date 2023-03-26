@@ -10,8 +10,8 @@ const NotFound = () => (
         width: "100%",
       }}
     />
-    <Link to="/" className="link-home">
-      Go Home
+    <Link to="/login" className="link-login">
+      Login
     </Link>
   </div>
 );

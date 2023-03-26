@@ -1,6 +1,6 @@
 import { Breadcrumb, Layout, theme } from "antd";
-import { UserProfile } from "../../pages/UserProfile";
-import { AdminSider } from "./AdminSider";
+import UserProfile from "../pages/profile/UserProfile";
+import { AdminSider } from "./sider/AdminSider";
 const { Header, Content } = Layout;
 
 const ProfilePage = () => {
@@ -30,7 +30,7 @@ const ProfilePage = () => {
             style={{
               margin: "16px 0",
             }}
-            items={[{ title: "User" }, { title: "Bill" }]}
+            items={[{ title: "User" }, { title: "Update" }]}
           />
           <div
             style={{

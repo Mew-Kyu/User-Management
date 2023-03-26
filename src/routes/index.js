@@ -1,8 +1,8 @@
 import NotFound from "../components/404/NotFound";
-import ManagePage from "../components/layout/admin/ManagePage";
+import ManagePage from "../components/layout/ManagePage";
 import Login from "../components/login/Login";
 import { Register } from "../components/registration/Register";
-import ProfilePage from "../components/layout/admin/ProfilePage"
+import ProfilePage from "../components/layout/ProfilePage"
 
 const privateRoutes = [
     {

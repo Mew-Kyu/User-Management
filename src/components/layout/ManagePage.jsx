@@ -1,11 +1,11 @@
 import { Breadcrumb, Layout, theme } from "antd";
-import AdminList from "../../pages/AdminList";
+import AdminList from "../pages/AdminList";
 import axios from "axios";
-import { AdminSider } from "./AdminSider";
-import { headers } from "../../../utils/headers";
-import { BASE_URL_USER } from "../../../utils/api";
+import { AdminSider } from "../layout/sider/AdminSider";
+import { headers } from "../../utils/headers";
+import { BASE_URL_USER } from "../../utils/api";
 import { useState, useEffect } from "react";
-import UserList from "../../pages/UserList";
+import UserList from "../pages/UserList";
 const { Header, Content } = Layout;
 
 const ManagePage = () => {
@@ -16,20 +16,23 @@ const ManagePage = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const userId = localStorage.getItem("userId");
 
-  const checkAdmin = async () => {
-    try {
-      const { data: res } = await axios.get(`${BASE_URL_USER}/${userId}`, {
-        headers,
-      });
-      setIsAdmin(res.isAdmin);
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
-
   useEffect(() => {
+    const checkAdmin = async () => {
+      try {
+        const { data: res } = await axios.get(
+          `${BASE_URL_USER}/user/${userId}`,
+          {
+            headers,
+          }
+        );
+        setIsAdmin(res.isAdmin);
+      } catch (error) {
+        throw new Error(error);
+      }
+    };
+
     checkAdmin();
-  }, []);
+  }, [userId]);
 
   return (
     <Layout
