@@ -27,7 +27,7 @@ export const AdminSider = () => {
       console.log(res);
       removeItem("accessToken");
       removeItem("userId");
-      window.location.href = "/";
+      window.location.href = "/login";
     } catch (error) {
       console.log(error);
     }

@@ -6,11 +6,11 @@ import { useEffect } from "react";
 function App() {
   const token = localStorage.getItem("accessToken");
   const navigator = useNavigate();
-  // useEffect(() => {
-  //   if (!token) {
-  //     navigator("/login");
-  //   }
-  // }, [token, navigator]);
+  useEffect(() => {
+    if (!token) {
+      navigator("/login");
+    }
+  }, [token, navigator]);
   return (
     <Routes>
       {token ? (

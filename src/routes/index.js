@@ -1,7 +1,6 @@
 import NotFound from "../components/404/NotFound";
 import ManagePage from "../components/layout/ManagePage";
-import Login from "../components/login/Login";
-import { Register } from "../components/registration/Register";
+import Login from "../components/layout/login/Login";
 import ProfilePage from "../components/layout/ProfilePage"
 
 const privateRoutes = [
@@ -23,10 +22,6 @@ const publicRoutes = [
     {
         path: "/login",
         element: <Login />
-    },
-    {
-        path: "/register",
-        element: <Register />
     },
     {
         path: "*",

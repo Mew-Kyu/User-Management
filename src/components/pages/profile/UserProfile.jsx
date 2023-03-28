@@ -50,7 +50,7 @@ const UserProfile = () => {
   };
 
   return (
-    <form onSubmit={handleUpdateUser}>
+    <form className="user-form" onSubmit={handleUpdateUser}>
       <div>
         <label htmlFor="email">Email:</label>
         <input
