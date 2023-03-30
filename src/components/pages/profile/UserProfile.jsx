@@ -1,3 +1,4 @@
+import { Form, Input, Button, message, Spin } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BASE_URL_USER } from "../../../utils/api";
@@ -6,9 +7,11 @@ import "./userprofile.css";
 
 const UserProfile = () => {
   const [currentUser, setCurrentUser] = useState({});
-  const [newData, setNewData] = useState(null);
+  const [messageApi, contextHolder] = message.useMessage();
   const userId = localStorage.getItem("userId");
+  const [loading, setLoading] = useState(true);
 
+  // get user logged
   useEffect(() => {
     const getCurrentUser = async () => {
       try {
@@ -19,62 +22,106 @@ const UserProfile = () => {
           }
         );
         setCurrentUser(res);
+        setLoading(false);
       } catch (error) {}
     };
-
     getCurrentUser();
   }, [userId]);
 
-  const handleChange = (e) => {
-    setNewData({
-      ...newData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  if (loading) {
+    return <Spin />;
+  }
 
-  const handleUpdateUser = async (e) => {
-    e.preventDefault();
+  // update info user
+  const handleUpdateUser = async (values) => {
     try {
       const { data: res } = await axios.put(
         `${BASE_URL_USER}/${userId}/update`,
-        newData,
+        values,
         {
           headers,
         }
       );
-      console.log(res);
-      window.location.href = "/";
+      messageApi.success(res);
     } catch (error) {
-      throw new Error(error);
+      messageApi.error(error.message);
     }
   };
 
+  // format time create
+  const timestampCreate = currentUser.createdAt;
+  const dateCreate = new Date(timestampCreate);
+  const formattedDateCreate = `${dateCreate.getFullYear()}-${(
+    "0" +
+    (dateCreate.getMonth() + 1)
+  ).slice(-2)}-${("0" + dateCreate.getDate()).slice(-2)} ${(
+    "0" + dateCreate.getHours()
+  ).slice(-2)}:${("0" + dateCreate.getMinutes()).slice(-2)}:${(
+    "0" + dateCreate.getSeconds()
+  ).slice(-2)}`;
+  // format time update
+  const timestampUpdate = currentUser.updatedAt;
+  const dateUpdate = new Date(timestampUpdate);
+  const formattedDateUpdate = `${dateUpdate.getFullYear()}-${(
+    "0" +
+    (dateUpdate.getMonth() + 1)
+  ).slice(-2)}-${("0" + dateUpdate.getDate()).slice(-2)} ${(
+    "0" + dateUpdate.getHours()
+  ).slice(-2)}:${("0" + dateUpdate.getMinutes()).slice(-2)}:${(
+    "0" + dateUpdate.getSeconds()
+  ).slice(-2)}`;
+
   return (
-    <form className="user-form" onSubmit={handleUpdateUser}>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          id="email"
-          type="email"
-          placeholder="email"
-          defaultValue={currentUser.email}
-          name="email"
-          onChange={handleChange}
-        />
+    <>
+      {contextHolder}
+      <div className="user-profile-container">
+        <h1
+          className="user-profile-title"
+          style={{ marginBottom: "20px", fontSize: 25, color: "#4169E1" }}
+        >
+          Change Information
+        </h1>
+        <Form
+          className="user-form"
+          onFinish={handleUpdateUser}
+          initialValues={{
+            email: currentUser.email,
+            username: currentUser.username,
+          }}
+          style={{ border: "1px solid #ccc", padding: "20px" }}
+        >
+          <Form.Item
+            label="Email"
+            name="email"
+            style={{ marginBottom: "10px" }}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Username"
+            name="username"
+            style={{ marginBottom: "10px" }}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item label="Created At" style={{ marginBottom: "10px" }}>
+            <label style={{ fontSize: "16px", fontWeight: "bold" }}>
+              {formattedDateCreate}
+            </label>
+          </Form.Item>
+          <Form.Item label="Updated At" style={{ marginBottom: "10px" }}>
+            <label style={{ fontSize: "16px", fontWeight: "bold" }}>
+              {formattedDateUpdate}
+            </label>
+          </Form.Item>
+          <Form.Item style={{ marginTop: "20px" }}>
+            <Button type="primary" htmlType="submit">
+              Update
+            </Button>
+          </Form.Item>
+        </Form>
       </div>
-      <div>
-        <label htmlFor="username">Username:</label>
-        <input
-          id="username"
-          type="text"
-          placeholder="username"
-          defaultValue={currentUser.username}
-          name="username"
-          onChange={handleChange}
-        />
-      </div>
-      <button>Update</button>
-    </form>
+    </>
   );
 };
 

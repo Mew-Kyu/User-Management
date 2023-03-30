@@ -35,6 +35,7 @@ export const AdminSider = () => {
   return (
     <Sider>
       <LogoutOutlined
+        className="logout-item"
         style={{
           color: "white",
           display: "flex",

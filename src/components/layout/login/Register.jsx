@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input, Modal, Spin } from "antd";
+import { Button, Checkbox, Form, Input, Modal, Spin, message } from "antd";
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL_AUTH } from "../../../utils/api";
@@ -37,6 +37,8 @@ const tailFormItemLayout = {
 
 export const Register = () => {
   const [open, setOpen] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
+
   const showModal = () => {
     setOpen(true);
   };
@@ -52,11 +54,20 @@ export const Register = () => {
         email: values.email,
       };
       await axios.post(`${BASE_URL_AUTH}/register`, newUser);
+      messageApi.open({
+        type: "success",
+        content: "Sign up success",
+      });
       setOpen(false);
     } catch (error) {
-      console.log(error);
+      const errorMessage = error.response.data;
+      messageApi.open({
+        type: "error",
+        content: errorMessage,
+      });
     }
     setLoading(false);
+    form.resetFields(); // Clear the form
   };
 
   const handleCancel = () => {
@@ -65,6 +76,7 @@ export const Register = () => {
 
   return (
     <>
+      {contextHolder}
       <p
         style={{
           display: "flex",
@@ -172,7 +184,7 @@ export const Register = () => {
               ]}
               {...tailFormItemLayout}
             >
-              <Checkbox>I have read the agreement</Checkbox>
+              <Checkbox>Agree to register an account</Checkbox>
             </Form.Item>
             <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">

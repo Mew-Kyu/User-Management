@@ -1,5 +1,5 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, Space, Spin } from "antd";
+import { Button, Checkbox, Form, Input, Space, Spin, message } from "antd";
 import { useState } from "react";
 import axios from "axios";
 import { BASE_URL_AUTH } from "../../../utils/api";
@@ -8,6 +8,14 @@ import { Register } from "./Register";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Logged in successfully",
+    });
+  };
 
   const onFinish = async (e) => {
     setLoading(true);
@@ -21,88 +29,92 @@ const Login = () => {
       localStorage.setItem("accessToken", res.accessToken);
       localStorage.setItem("userId", res._id);
       window.location.href = "/";
+      success();
     } catch (error) {
-      console.log(error);
+      const errorMessage = error.response.data;
+      messageApi.open({
+        type: "error",
+        content: errorMessage,
+      });
     }
     setLoading(false);
   };
 
   return (
-    <div className="bg">
-      <Space
-        className="space"
-        style={{
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Spin spinning={loading}>
-          <Form
-            style={{}}
-            name="normal_login"
-            className="login-form"
-            initialValues={{
-              remember: true,
-            }}
-            onFinish={onFinish}
-          >
-            <h1 className="login-label">Login</h1>
-            <Form.Item
-              name="username"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your Username!",
-                },
-              ]}
+    <>
+      {contextHolder}
+      <div className="bg">
+        <Space
+          className="space"
+          style={{
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Spin spinning={loading}>
+            <Form
+              style={{}}
+              name="normal_login"
+              className="login-form"
+              initialValues={{
+                remember: true,
+              }}
+              onFinish={onFinish}
             >
-              <Input
-                prefix={<UserOutlined className="site-form-item-icon" />}
-                placeholder="Username"
-              />
-            </Form.Item>
-            <Form.Item
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input your Password!",
-                },
-              ]}
-              hasFeedback
-            >
-              <Input
-                prefix={<LockOutlined className="site-form-item-icon" />}
-                type="password"
-                placeholder="Password"
-              />
-            </Form.Item>
-            <Form.Item>
-              <Form.Item name="remember" valuePropName="checked" noStyle>
-                <Checkbox style={{ color: "white" }}>Remember me</Checkbox>
+              <h1 className="login-label">Login</h1>
+              <Form.Item
+                name="username"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Username!",
+                  },
+                ]}
+              >
+                <Input
+                  prefix={<UserOutlined className="site-form-item-icon" />}
+                  placeholder="Username"
+                />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Password!",
+                  },
+                ]}
+                hasFeedback
+              >
+                <Input
+                  prefix={<LockOutlined className="site-form-item-icon" />}
+                  type="password"
+                  placeholder="Password"
+                />
+              </Form.Item>
+              <Form.Item>
+                <Form.Item name="remember" valuePropName="checked" noStyle>
+                  <Checkbox style={{ color: "white" }}>Remember me</Checkbox>
+                </Form.Item>
               </Form.Item>
 
-              {/* <a className="login-form-forgot" href="">
-              Forgot password
-            </a> */}
-            </Form.Item>
-
-            <Form.Item style={{ color: "white" }}>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="login-form-button"
-                style={{ marginBottom: 10 }}
-              >
-                Log in
-              </Button>
-              <Register />
-            </Form.Item>
-          </Form>
-        </Spin>
-      </Space>
-    </div>
+              <Form.Item style={{ color: "white" }}>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="login-form-button"
+                  style={{ marginBottom: 10 }}
+                >
+                  Log in
+                </Button>
+                <Register />
+              </Form.Item>
+            </Form>
+          </Spin>
+        </Space>
+      </div>
+    </>
   );
 };
 
