@@ -91,18 +91,18 @@ const UserProfile = () => {
           style={{ border: "1px solid #ccc", padding: "20px" }}
         >
           <Form.Item
-            label="Email"
+            label="My Email"
             name="email"
             style={{ marginBottom: "10px" }}
           >
-            <Input />
+            <Input style={{ float: "right", width: "172vh" }} />
           </Form.Item>
           <Form.Item
             label="Username"
             name="username"
             style={{ marginBottom: "10px" }}
           >
-            <Input />
+            <Input style={{ float: "right", width: "172vh" }} />
           </Form.Item>
           <Form.Item label="Created At" style={{ marginBottom: "10px" }}>
             <label style={{ fontSize: "16px", fontWeight: "bold" }}>
