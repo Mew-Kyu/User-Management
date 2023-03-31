@@ -95,14 +95,14 @@ const UserProfile = () => {
             name="email"
             style={{ marginBottom: "10px" }}
           >
-            <Input style={{ float: "right", width: "172vh" }} />
+            <Input style={{ float: "right", width: "1300px" }} />
           </Form.Item>
           <Form.Item
             label="Username"
             name="username"
             style={{ marginBottom: "10px" }}
           >
-            <Input style={{ float: "right", width: "172vh" }} />
+            <Input style={{ float: "right", width: "1300px" }} />
           </Form.Item>
           <Form.Item label="Created At" style={{ marginBottom: "10px" }}>
             <label style={{ fontSize: "16px", fontWeight: "bold" }}>
