@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# User Management :computer:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the project
 
-## Available Scripts
+- Project management user is a test in ShinhanDS Academy.
+- Backend: [here](https://github.com/Mew-Kyu/BE-User-Management)
 
-In the project directory, you can run:
+## How to run in local:
+
+Open terminal and type:
+
+### `npm i`
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Screenshot and information
 
-### `npm test`
+### Login Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/53606646/229020088-db263e2e-14f1-4ec9-bd01-e9b7e2a4681f.png)
+- Check the form is not filled out and notify when information entered is wrong
 
-### `npm run build`
+### Register Modal
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Click "Register here" to register: <img width="154" alt="image" src="https://user-images.githubusercontent.com/53606646/229021233-27b9aa10-52d4-4988-a7ad-2c1068700646.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://user-images.githubusercontent.com/53606646/229021178-f073c6ad-04fb-46c4-826f-63b3df8b80e6.png)
+Register also check information like login
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### User Manage Page
 
-### `npm run eject`
+![image](https://user-images.githubusercontent.com/53606646/229021473-87d24f42-a213-4817-bcbe-127b0820f981.png)
+Can search by username or email:
+<img width="830" alt="image" src="https://user-images.githubusercontent.com/53606646/229021581-4a3dddb5-6084-4a3d-b60b-0702ea110828.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Profile Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="955" alt="image" src="https://user-images.githubusercontent.com/53606646/229021753-ad412c2b-df06-4f1f-a500-6407afdbdc46.png">
+Change username or email logged here
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Logout Button
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img width="44" alt="image" src="https://user-images.githubusercontent.com/53606646/229021970-4da981ac-b1e8-4eb8-b9b6-83e0516d9226.png">
+Click to log out account
 
-## Learn More
+### Admin Manage Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img width="812" alt="image" src="https://user-images.githubusercontent.com/53606646/229022556-d840f00a-fae7-473f-9628-7880ef428db2.png">
+Left icon to change role, and right icon to delete user, can delete or change role when search
+<img width="56" alt="image" src="https://user-images.githubusercontent.com/53606646/229022249-bc56f9ad-3bc3-4c83-8063-582d445e2fff.png">
+Modal to confirm when use clicked:
+<img width="258" alt="image" src="https://user-images.githubusercontent.com/53606646/229022383-8d33b027-c887-4ec4-8cbe-d706ae9fe2e6.png">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built with
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- ReactJS v18
+- NodeJS v18.14.0
+- React router v6
+- Ant Design
+- Axios
