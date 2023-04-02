@@ -1,3 +1,4 @@
+import "./layout.css";
 import { Breadcrumb, Layout, theme } from "antd";
 import AdminList from "../pages/AdminList";
 import axios from "axios";
@@ -38,10 +39,11 @@ const ManagePage = () => {
     <Layout
       style={{
         minHeight: "100vh",
+        minWidth: "110vh",
       }}
     >
       <AdminSider />
-      <Layout className="site-layout">
+      <Layout>
         <Header
           style={{
             padding: 0,
@@ -73,4 +75,5 @@ const ManagePage = () => {
     </Layout>
   );
 };
+
 export default ManagePage;

@@ -11,9 +11,6 @@ const { Sider } = Layout;
 
 export const AdminSider = () => {
   const userId = localStorage.getItem("userId");
-  const removeItem = (item) => {
-    localStorage.removeItem(item);
-  };
 
   const handleLogout = async () => {
     try {
@@ -25,8 +22,7 @@ export const AdminSider = () => {
         }
       );
       console.log(res);
-      removeItem("accessToken");
-      removeItem("userId");
+      localStorage.clear();
       window.location.href = "/login";
     } catch (error) {
       console.log(error);

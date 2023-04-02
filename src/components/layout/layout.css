@@ -1,0 +1,43 @@
+/* Default styles */
+.manage-layout {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .site-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  /* Media queries */
+  @media screen and (max-width: 768px) {
+    .manage-layout {
+      flex-direction: column;
+    }
+  
+    .site-layout {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .manage-layout {
+      flex-direction: column;
+    }
+  
+    .site-layout {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (min-width: 1025px) {
+    .manage-layout {
+      flex-direction: row;
+    }
+  
+    .site-layout {
+      width: 80%;
+    }
+  }
+  

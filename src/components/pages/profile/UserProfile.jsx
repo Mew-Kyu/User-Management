@@ -91,25 +91,35 @@ const UserProfile = () => {
           style={{ border: "1px solid #ccc", padding: "20px" }}
         >
           <Form.Item
-            label="My Email"
-            name="email"
-            style={{ marginBottom: "10px" }}
-          >
-            <Input style={{ float: "right", width: "1300px" }} />
-          </Form.Item>
-          <Form.Item
-            label="Username"
+            label="Current Username"
+            labelCol={{ span: 2 }}
             name="username"
             style={{ marginBottom: "10px" }}
           >
-            <Input style={{ float: "right", width: "1300px" }} />
+            <Input style={{ float: "right" }} />
           </Form.Item>
-          <Form.Item label="Created At" style={{ marginBottom: "10px" }}>
+          <Form.Item
+            label="Current Email"
+            labelCol={{ span: 2 }}
+            name="email"
+            style={{ marginBottom: "10px" }}
+          >
+            <Input style={{ float: "right" }} />
+          </Form.Item>
+          <Form.Item
+            label="Created At"
+            labelCol={{ span: 2 }}
+            style={{ marginBottom: "10px" }}
+          >
             <label style={{ fontSize: "16px", fontWeight: "bold" }}>
               {formattedDateCreate}
             </label>
           </Form.Item>
-          <Form.Item label="Updated At" style={{ marginBottom: "10px" }}>
+          <Form.Item
+            label="Updated At"
+            labelCol={{ span: 2 }}
+            style={{ marginBottom: "10px" }}
+          >
             <label style={{ fontSize: "16px", fontWeight: "bold" }}>
               {formattedDateUpdate}
             </label>

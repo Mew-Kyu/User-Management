@@ -8,6 +8,7 @@ import {
   UserSwitchOutlined,
   ExclamationCircleFilled,
 } from "@ant-design/icons";
+import "./list.css";
 
 const { Search } = Input;
 const { confirm } = Modal;
@@ -145,12 +146,12 @@ const AdminList = () => {
   return (
     <>
       {contextHolder}
-      <Space style={{ display: "flex", justifyContent: "center" }}>
+      <Space className="space-search">
         <Search
+          className="search-input"
           placeholder="Search by username or email"
           value={searchQuery}
           onChange={handleSearch}
-          style={{ marginBottom: "16px", width: 800 }}
         />
       </Space>
       <Table

@@ -65,12 +65,12 @@ const UserList = () => {
 
   return (
     <>
-      <Space style={{ display: "flex", justifyContent: "center" }}>
+      <Space className="space-search">
         <Search
           placeholder="Search by username or email"
           value={searchQuery}
           onChange={handleSearch}
-          style={{ marginBottom: "16px", width: 800 }}
+          className="search-input"
         />
       </Space>
       <Table

@@ -1,6 +1,8 @@
 import { Breadcrumb, Layout, theme } from "antd";
 import UserProfile from "../pages/profile/UserProfile";
 import { AdminSider } from "./sider/AdminSider";
+import ChangePassword from "../pages/profile/ChangePassword";
+
 const { Header, Content } = Layout;
 
 const ProfilePage = () => {
@@ -11,10 +13,11 @@ const ProfilePage = () => {
     <Layout
       style={{
         minHeight: "100vh",
+        minWidth: "100vh",
       }}
     >
       <AdminSider />
-      <Layout className="site-layout">
+      <Layout>
         <Header
           style={{
             padding: 0,
@@ -40,10 +43,12 @@ const ProfilePage = () => {
             }}
           >
             <UserProfile />
+            <ChangePassword />
           </div>
         </Content>
       </Layout>
     </Layout>
   );
 };
+
 export default ProfilePage;

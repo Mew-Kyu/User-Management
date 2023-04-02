@@ -9,6 +9,7 @@ import { Register } from "./Register";
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
+  const [rememberMe, setRememberMe] = useState(true);
 
   const success = () => {
     messageApi.open({
@@ -25,9 +26,15 @@ const Login = () => {
     };
     try {
       const { data: res } = await axios.post(`${BASE_URL_AUTH}/login`, user);
-      // send token to local storage
-      localStorage.setItem("accessToken", res.accessToken);
-      localStorage.setItem("userId", res._id);
+      if (rememberMe) {
+        // send token to local storage
+        localStorage.setItem("accessToken", res.accessToken);
+        localStorage.setItem("refreshToken", res.refreshToken);
+        localStorage.setItem("userId", res._id);
+      } else {
+        localStorage.setItem("accessToken", res.accessToken);
+        localStorage.setItem("userId", res._id);
+      }
       window.location.href = "/";
       success();
     } catch (error) {
@@ -38,6 +45,10 @@ const Login = () => {
       });
     }
     setLoading(false);
+  };
+
+  const handleRememberMe = (e) => {
+    setRememberMe(e.target.checked);
   };
 
   return (
@@ -95,7 +106,13 @@ const Login = () => {
               </Form.Item>
               <Form.Item>
                 <Form.Item name="remember" valuePropName="checked" noStyle>
-                  <Checkbox style={{ color: "white" }}>Remember me</Checkbox>
+                  <Checkbox
+                    style={{ color: "white" }}
+                    checked={rememberMe}
+                    onChange={handleRememberMe}
+                  >
+                    Remember me
+                  </Checkbox>
                 </Form.Item>
               </Form.Item>
 
