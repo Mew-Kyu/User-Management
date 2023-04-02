@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button, Result } from "antd";
 
-const NotFound = () => (
-  <div className="not-found">
-    <img
-      src="https://www.pngitem.com/pimgs/m/561-5616833_image-not-found-png-not-found-404-png.png"
-      alt="not-found"
-      style={{
-        width: "100%",
-      }}
+const NotFound = () => {
+  return (
+    <Result
+      status="404"
+      title="404"
+      subTitle="Sorry, the page you visited does not exist."
+      extra={
+        <Link to="/">
+          <Button type="primary">Back Home</Button>
+        </Link>
+      }
     />
-    <Link to="/login" className="link-login">
-      Login
-    </Link>
-  </div>
-);
+  );
+};
 
 export default NotFound;
