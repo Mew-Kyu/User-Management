@@ -92,7 +92,7 @@ const UserProfile = () => {
         >
           <Form.Item
             label="Current Username"
-            labelCol={{ span: 2 }}
+            labelCol={{ span: 3 }}
             name="username"
             style={{ marginBottom: "10px" }}
           >
@@ -100,7 +100,7 @@ const UserProfile = () => {
           </Form.Item>
           <Form.Item
             label="Current Email"
-            labelCol={{ span: 2 }}
+            labelCol={{ span: 3 }}
             name="email"
             style={{ marginBottom: "10px" }}
           >
@@ -108,7 +108,7 @@ const UserProfile = () => {
           </Form.Item>
           <Form.Item
             label="Created At"
-            labelCol={{ span: 2 }}
+            labelCol={{ span: 3 }}
             style={{ marginBottom: "10px" }}
           >
             <label style={{ fontSize: "16px", fontWeight: "bold" }}>
@@ -117,7 +117,7 @@ const UserProfile = () => {
           </Form.Item>
           <Form.Item
             label="Updated At"
-            labelCol={{ span: 2 }}
+            labelCol={{ span: 3 }}
             style={{ marginBottom: "10px" }}
           >
             <label style={{ fontSize: "16px", fontWeight: "bold" }}>

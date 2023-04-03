@@ -35,24 +35,6 @@
   margin-right: 0.5rem;
 }
 
-@media screen and (max-width: 767px) {
-  .menu li {
-    padding: 12px;
-    font-size: 16px;
-  }
-
-  .menu li svg {
-    font-size: 18px;
-  }
-
-  .menu li span {
-    display: inline;
-    margin-left: 8px;
-  }
-
-  .logout-item {
-    font-size: 20px;
-    margin: 12px;
-  }
+.hidden {
+  display: none;
 }
-  

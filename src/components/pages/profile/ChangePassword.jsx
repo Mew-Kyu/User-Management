@@ -38,7 +38,7 @@ const ChangePassword = () => {
           <Form.Item
             label="Current Password"
             name="currentPassword"
-            labelCol={{ span: 2 }}
+            labelCol={{ span: 3 }}
             rules={[
               { required: true, message: "Please enter your current password" },
             ]}
@@ -48,7 +48,7 @@ const ChangePassword = () => {
           <Form.Item
             label="New Password"
             name="newPassword"
-            labelCol={{ span: 2 }}
+            labelCol={{ span: 3 }}
             rules={[
               { required: true, message: "Please enter your new password" },
             ]}
@@ -58,7 +58,7 @@ const ChangePassword = () => {
           <Form.Item
             name="confirm"
             label="Confirm Password:"
-            labelCol={{ span: 2 }}
+            labelCol={{ span: 3 }}
             dependencies={["newPassword"]}
             hasFeedback
             rules={[

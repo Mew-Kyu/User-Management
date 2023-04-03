@@ -45,6 +45,7 @@ export const Register = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
 
+  // handle register
   const onFinish = async (values) => {
     setLoading(true);
     try {

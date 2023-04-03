@@ -17,6 +17,7 @@ const ManagePage = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const userId = localStorage.getItem("userId");
 
+  // check admin rights
   useEffect(() => {
     const checkAdmin = async () => {
       try {

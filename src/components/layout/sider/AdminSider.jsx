@@ -6,12 +6,15 @@ import { BASE_URL_AUTH } from "../../../utils/api";
 import { headers } from "../../../utils/headers";
 import { LogoutOutlined } from "@ant-design/icons";
 import "./sider.css";
+import { useState } from "react";
 
 const { Sider } = Layout;
 
 export const AdminSider = () => {
   const userId = localStorage.getItem("userId");
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
+  // log out
   const handleLogout = async () => {
     try {
       const { data: res } = await axios.post(
@@ -28,8 +31,19 @@ export const AdminSider = () => {
       console.log(error);
     }
   };
+
+  // handle when click to sidebar collapse
+  const handleSidebarCollapse = (collapsed) => {
+    setIsSidebarCollapsed(collapsed);
+  };
+
   return (
-    <Sider>
+    <Sider
+      collapsible
+      collapsed={isSidebarCollapsed}
+      onCollapse={handleSidebarCollapse}
+      breakpoint="sm"
+    >
       <LogoutOutlined
         className="logout-item"
         style={{
@@ -46,13 +60,15 @@ export const AdminSider = () => {
           <li>
             <Link to="/" className="menu-item">
               <TeamOutlined />
-              <span>Home</span>
+              <span className={isSidebarCollapsed ? "hidden" : ""}>Manage</span>
             </Link>
           </li>
           <li>
             <Link to="/profile" className="menu-item">
               <UserOutlined />
-              <span>Profile</span>
+              <span className={isSidebarCollapsed ? "hidden" : ""}>
+                Profile
+              </span>
             </Link>
           </li>
         </ul>
