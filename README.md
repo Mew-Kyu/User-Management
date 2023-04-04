@@ -32,32 +32,39 @@ Register also check information like login
 
 ### User Manage Page
 
-![image](https://user-images.githubusercontent.com/53606646/229021473-87d24f42-a213-4817-bcbe-127b0820f981.png)
+![image](https://user-images.githubusercontent.com/53606646/229853353-0888a758-f086-4429-9eb6-373647c9eaeb.png)
+
 Can search by username or email:
 <img width="830" alt="image" src="https://user-images.githubusercontent.com/53606646/229021581-4a3dddb5-6084-4a3d-b60b-0702ea110828.png">
 
 ### Profile Page
 
-<img width="955" alt="image" src="https://user-images.githubusercontent.com/53606646/229021753-ad412c2b-df06-4f1f-a500-6407afdbdc46.png">
-Change username or email logged here
+![image](https://user-images.githubusercontent.com/53606646/229853534-dfebb9a5-f3ed-4d0d-89fe-b31b908c30e3.png)
+Change username or email logged here, in addition, you can also change the password of the logged-in account
 
 ### Logout Button
 
 <img width="44" alt="image" src="https://user-images.githubusercontent.com/53606646/229021970-4da981ac-b1e8-4eb8-b9b6-83e0516d9226.png">
 Click to log out account
-
 ### Admin Manage Page
 
 <img width="812" alt="image" src="https://user-images.githubusercontent.com/53606646/229022556-d840f00a-fae7-473f-9628-7880ef428db2.png">
 Left icon to change role, and right icon to delete user, can delete or change role when search
 <img width="56" alt="image" src="https://user-images.githubusercontent.com/53606646/229022249-bc56f9ad-3bc3-4c83-8063-582d445e2fff.png">
-Modal to confirm when use clicked:
+Modal to confirm when you clicked:
 <img width="258" alt="image" src="https://user-images.githubusercontent.com/53606646/229022383-8d33b027-c887-4ec4-8cbe-d706ae9fe2e6.png">
+
+### Sidebar
+
+Sidebar can also be minimized when you clicked: ![image](https://user-images.githubusercontent.com/53606646/229854985-6131900d-58b7-4b41-a06d-753e19ec8199.png)
+
+The sidebar will become ![image](https://user-images.githubusercontent.com/53606646/229855325-da2bfa64-3e67-46d3-b008-9fd0c2398506.png)
 
 ## Built with
 
 - ReactJS v18
 - NodeJS v18.14.0
 - React router v6
-- Ant Design
+- Ant Design 5.3
+- Google Fonts
 - Axios
