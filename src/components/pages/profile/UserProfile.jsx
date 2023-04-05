@@ -44,7 +44,7 @@ const UserProfile = () => {
       );
       messageApi.success(res);
     } catch (error) {
-      messageApi.error(error.message);
+      messageApi.error(error.response.data);
     }
   };
 
